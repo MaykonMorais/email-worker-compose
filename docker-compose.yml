@@ -6,11 +6,18 @@ volumes:
 services: 
   db:
     image: postgres:13.1
+    environment: 
+      POSTGRES_PASSWORD: 1234
     volumes:
       # Volume dos dados
       - data:/var/lib/postgresql/data
       # Scripts
       - ./scripts:/scripts
       - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
-    environment: 
-      POSTGRES_PASSWORD: 1234
+  frontend:
+    image: nginx:1.19.6
+    volumes: 
+      # Website
+      - ./web:/usr/share/nginx/html/
+    ports: 
+      - 80:80
