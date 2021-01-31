@@ -6,6 +6,7 @@ volumes:
 networks: 
   database:
   web:
+  queue:
 
 services: 
   db:
@@ -45,5 +46,25 @@ services:
     networks: 
      - database
      - web
+     - queue
     depends_on: 
       - db
+      - queue
+  
+  queue:
+    image: redis:6.0.10
+    networks: 
+      - queue
+  
+  worker:
+    image: python:3.6
+    volumes: 
+      # Worker volume
+      - ./worker:/worker
+    working_dir: /worker
+    command: bash ./app.sh
+    env_file: .env
+    networks: 
+      - queue
+    depends_on: 
+      - queue
