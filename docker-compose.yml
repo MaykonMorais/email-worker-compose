@@ -12,7 +12,7 @@ services:
   db:
     image: postgres:13.1
     environment: 
-      POSTGRES_PASSWORD: 1234
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       # Volume dos dados
       - data:/var/lib/postgresql/data
