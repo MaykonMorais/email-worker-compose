@@ -57,6 +57,7 @@ services:
       - queue
   
   worker:
+    build: worker
     image: python:3.6
     volumes: 
       # Worker volume

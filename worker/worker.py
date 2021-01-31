@@ -5,10 +5,9 @@ import json
 from time import sleep
 from random import randint
 
-
-
 if __name__ == '__main__':
   r = redis.Redis(host=os.getenv('REDIS_HOST'), port=os.getenv('REDIS_PORT'), db=0)
+  print('Waiting messages...')
 
   while True:
     message = json.loads(r.blpop('sender')[1])
