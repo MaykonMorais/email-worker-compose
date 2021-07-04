@@ -1,12 +1,12 @@
 # email-sender-compose :mailbox:
 
-email-sender-compose is a complete example of a application with multiples services in docker. This application have some nice components:
+email-sender-compose is a complete example of an application with multiples services in docker. This application has some nice components:
 
-* **Web Server**: Configured with nginx to provide pages and to create a layer that directs clients request to the appropriate backend server (reverse proxy).
-* **Database**: Postgres - used for just to store simple messages.
+* **Web Server**: Configured with nginx to provide pages and to create a layer that directs clients' requests to the appropriate backend server (reverse proxy).
+* **Database**: Postgres - used just to store simple messages.
 * **Workers**: Used for capture messages from service queue and send them.
-* **Queue management**: With redis it was possible to create a queue service that provide messages to workers.
-* **Main application**: It's a little backend server that comunicate with database service and send messages to queue service. 
+* **Queue management**: With redis it was possible to create a queue service that provides messages to workers.
+* **Main application**: It's a little backend server that communicates with database service and sends messages to queue service. 
 
 
 <p align=center style="margin: 40px 0;">
@@ -15,9 +15,9 @@ email-sender-compose is a complete example of a application with multiples servi
 </p>
 
 
-## Instalation 🔧
+## Installation 🔧
 
-First of all make sure you have installed [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install) on your machine.
+First of all, make sure you have installed [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install) on your machine.
 
 After that, create a copy from file **env.example** and rename them to **.env**:
 
@@ -27,7 +27,7 @@ cp env.example .env
 
 Obs: Just remember to define a value to DB_PASSWORD.
 
-Finally just build all containers and be happy! 
+Finally, just build all containers and be happy! 
 ```bash
 sudo docker-compose up -d
 ```
